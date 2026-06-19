@@ -1,7 +1,19 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": false,
+  "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/", "destination": "/home", "permanent": false },
+    { "source": "/index.html", "destination": "/home", "permanent": true },
+    { "source": "/index", "destination": "/home", "permanent": true },
+    { "source": "/legal/privacy.html", "destination": "/privacy", "permanent": true },
+    { "source": "/legal/privacy", "destination": "/privacy", "permanent": true },
+    { "source": "/legal/terms.html", "destination": "/terms", "permanent": true },
+    { "source": "/legal/terms", "destination": "/terms", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/home", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/assets/fonts/(.*)",

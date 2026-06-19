@@ -183,18 +183,21 @@ main { flex: 1 0 auto; }
 }
 .split-text { max-width: 560px; }
 
-/* Chrome-extension marker — recognisable logo, no pill, no pulsing dot. */
-.chrome-badge {
-  display: inline-flex; align-items: center; gap: 10px;
+/* Browser marker — recognisable store logos, no pill, no pulsing dot. */
+.browser-badge {
+  display: inline-flex; align-items: center; gap: 11px;
   margin-bottom: 24px;
   font-size: 13.5px; font-weight: 700;
   color: var(--text); letter-spacing: 0.01em;
 }
-.chrome-badge svg { width: 21px; height: 21px; }
-.chrome-badge .sep {
-  width: 1px; height: 13px; background: var(--border-strong);
+.browser-logos { display: inline-flex; align-items: center; }
+.browser-logos .b-logo {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--bg);
 }
-.chrome-badge .muted { color: var(--tertiary); font-weight: 600; }
+.browser-logos .b-logo + .b-logo { margin-left: -7px; }
+.b-logo text { font-family: var(--font-display); }
 
 /* Editorial overline — quiet, deliberate, not a badge. */
 .overline {
@@ -356,8 +359,7 @@ h1.display {
 @media (max-width: 560px) {
   /* keep the sticky header compact — the longer tagline would wrap */
   .brand-sub { display: none; }
-  .chrome-badge { flex-wrap: wrap; gap: 8px 10px; }
-  .chrome-badge .sep { display: none; }
+  .browser-badge { flex-wrap: wrap; gap: 8px 10px; }
 }
 
 /* ---- section heading -------------------------------------------------- */
@@ -422,6 +424,14 @@ h1.display {
   animation: hint-bob 2.2s var(--ease) infinite;
 }
 .play-hint svg { width: 13px; height: 13px; }
+/* Show the right verb: hover on fine-pointer devices, tap on touch.
+   The query is the De Morgan negation of the JS check
+   `(hover: hover) and (pointer: fine)`, so label and behaviour stay in sync. */
+.play-hint .hint-tap { display: none; }
+@media (hover: none), (pointer: coarse) {
+  .play-hint .hint-hover { display: none; }
+  .play-hint .hint-tap { display: inline; }
+}
 @keyframes hint-bob {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50% { transform: translateX(-50%) translateY(-3px); }
@@ -654,4 +664,47 @@ h1.display {
 .install-steps {
   max-width: 640px; margin: 32px auto 0;
   display: flex; flex-direction: column; gap: 14px;
+}
+
+/* ---- store buttons (Chrome Web Store / Яндекс / Edge) ----------------- */
+.store-btns {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  justify-content: center;
+  margin: 0 auto;
+}
+.store-btn {
+  display: inline-flex; align-items: center; gap: 13px;
+  min-width: 224px;
+  padding: 11px 22px 11px 15px;
+  border-radius: var(--r-md);
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-btn);
+  transition: transform .14s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease);
+}
+.store-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-card);
+}
+.store-btn:active { transform: translateY(0); }
+.store-logo { flex: none; width: 30px; height: 30px; display: block; }
+.store-text {
+  display: flex; flex-direction: column; text-align: left; line-height: 1.18;
+}
+.store-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.02em;
+  color: var(--tertiary);
+}
+.store-name {
+  font-family: var(--font-display);
+  font-size: 15.5px; font-weight: 700; letter-spacing: -0.2px;
+  color: var(--text);
+}
+.install-aside {
+  margin: 18px auto 0;
+  color: var(--tertiary); font-size: 13px;
+}
+@media (max-width: 560px) {
+  .store-btn { width: 100%; min-width: 0; }
 }

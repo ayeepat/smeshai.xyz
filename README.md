@@ -16,15 +16,21 @@ npm run dev
 ## Структура
 
 ```
-index.html            — главная
-how-it-works.html     — как это работает
-pricing.html          — тарифы
-install.html          — установка
-legal/                — политика конфиденциальности и условия
+index.html            — главная         (/home)
+how-it-works.html     — как это работает (/how-it-works)
+pricing.html          — тарифы          (/pricing)
+install.html          — установка       (/install)
+privacy.html          — политика конфиденциальности (/privacy)
+terms.html            — условия использования       (/terms)
 assets/               — шрифты, иконки, видео (сжатые демо-ролики)
 styles/               — токены темы и стили сайта
 scripts/              — переключатель темы и ленивое воспроизведение видео
 ```
+
+Чистые URL (без `.html`) включены через `cleanUrls` в `vercel.json`;
+там же редиректы `/` → `/home` и старых `/legal/*` на новые пути. Ссылки
+внутри страниц оставлены как `*.html`: локально (live-server) работают
+напрямую, а на Vercel автоматически редиректятся на чистый путь.
 
 ## Деплой
 
