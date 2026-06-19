@@ -23,9 +23,50 @@
     videos.forEach(function (v) { io.observe(v); });
   }
 
+  // Hover-to-play cards: clips load only on hover (preload="none"), and a
+  // pill hint nudges the user that hovering starts the demo. On touch
+  // devices a tap toggles play/pause instead.
+  function initHoverVideos() {
+    var media = document.querySelectorAll(".card-media--hover");
+    if (!media.length) return;
+
+    var hasHover = window.matchMedia &&
+      window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+    media.forEach(function (wrap) {
+      var v = wrap.querySelector("video");
+      if (!v) return;
+
+      function play() {
+        var p = v.play();
+        if (p && typeof p.catch === "function") p.catch(function () {});
+        wrap.classList.add("is-playing");
+      }
+      function stop() {
+        v.pause();
+        try { v.currentTime = 0; } catch (e) {}
+        wrap.classList.remove("is-playing");
+      }
+
+      if (hasHover) {
+        wrap.addEventListener("mouseenter", play);
+        wrap.addEventListener("mouseleave", stop);
+        wrap.addEventListener("focusin", play);
+        wrap.addEventListener("focusout", stop);
+      } else {
+        // touch / no-hover: tap to toggle
+        wrap.addEventListener("click", function () {
+          if (v.paused) play(); else stop();
+        });
+      }
+    });
+  }
+
+  function boot() { init(); initHoverVideos(); }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", boot);
   } else {
-    init();
+    boot();
   }
 })();
