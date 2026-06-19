@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles/theme.css" />
   <link rel="stylesheet" href="styles/site.css" />
   <script src="scripts/theme.js"></script>
+  <script src="scripts/menu.js" defer></script>
 </head>
 <body>
   <header class="nav">
@@ -30,9 +31,19 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
         </button>
         <a href="install.html" class="btn btn-primary btn-sm">Установить</a>
+        <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-controls="mobileMenu" aria-expanded="false">
+          <span class="nav-toggle-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
       </div>
     </div>
   </header>
+  <nav id="mobileMenu" class="mobile-menu" aria-label="Мобильное меню">
+    <a href="index.html" class="nav-link">Главная</a>
+    <a href="how-it-works.html" class="nav-link">Как это работает</a>
+    <a href="pricing.html" class="nav-link active">Тарифы</a>
+    <a href="install.html" class="nav-link">Установить</a>
+    <a href="install.html" class="btn btn-primary mobile-cta">Добавить в Chrome</a>
+  </nav>
 
   <main>
     <section class="section">

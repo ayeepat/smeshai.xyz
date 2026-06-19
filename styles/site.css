@@ -78,6 +78,73 @@ button { font-family: inherit; }
 }
 .icon-btn:hover { background: var(--hover); color: var(--text); border-color: var(--separator); }
 
+/* ---- hamburger / mobile menu ----------------------------------------- */
+.nav-toggle {
+  display: none;
+  position: relative;
+  width: 40px; height: 40px;
+  padding: 0;
+  border-radius: var(--r-pill);
+  background: transparent; border: 1px solid transparent;
+  color: var(--text); cursor: pointer;
+  transition: background .18s var(--ease), border-color .18s var(--ease);
+}
+.nav-toggle:hover { background: var(--hover); border-color: var(--separator); }
+.nav-toggle-bars {
+  position: absolute; left: 50%; top: 50%;
+  width: 18px; height: 12px;
+  transform: translate(-50%, -50%);
+}
+.nav-toggle-bars i {
+  position: absolute; left: 0; right: 0;
+  height: 2px; border-radius: 2px;
+  background: currentColor;
+  transition: transform .22s var(--ease), opacity .18s var(--ease), top .22s var(--ease);
+}
+.nav-toggle-bars i:nth-child(1) { top: 0; }
+.nav-toggle-bars i:nth-child(2) { top: 5px; }
+.nav-toggle-bars i:nth-child(3) { top: 10px; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars i:nth-child(1) {
+  top: 5px; transform: rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars i:nth-child(2) {
+  opacity: 0; transform: scaleX(0);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars i:nth-child(3) {
+  top: 5px; transform: rotate(-45deg);
+}
+
+.mobile-menu {
+  position: fixed; left: 0; right: 0;
+  top: 68px;
+  bottom: 0;
+  z-index: 49;
+  display: none;
+  flex-direction: column;
+  padding: 14px 22px 28px;
+  background: var(--bg);
+  border-top: 1px solid var(--separator);
+  overflow-y: auto;
+}
+.mobile-menu[data-open="true"] { display: flex; }
+.mobile-menu .nav-link {
+  display: flex; align-items: center;
+  padding: 14px 16px;
+  border-radius: var(--r-md);
+  font-size: 17px;
+  color: var(--text);
+}
+.mobile-menu .nav-link.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.mobile-menu .nav-link + .nav-link { margin-top: 2px; }
+.mobile-menu .mobile-cta {
+  margin-top: 18px;
+  width: 100%;
+}
+body.menu-open { overflow: hidden; }
+
 /* ---- buttons ----------------------------------------------------------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -243,7 +310,47 @@ h1.display {
 @media (max-width: 880px) {
   .split { grid-template-columns: 1fr; gap: 36px; }
   .nav-links { display: none; }
+  .nav-toggle { display: inline-grid; }
+  .nav-right .btn { display: none; }
   .hero-media { margin-top: 40px; }
+}
+
+@media (max-width: 640px) {
+  .wrap { padding: 0 18px; }
+  .nav-inner { height: 60px; gap: 12px; }
+  .mobile-menu { top: 60px; }
+  .brandmark { width: 30px; height: 30px; font-size: 16px; }
+  .brand-name { font-size: 17px; }
+  .section { padding: 44px 0; }
+  .hero { padding-bottom: 36px; }
+  .hero-media { margin-top: 28px; }
+  h1.display { font-size: clamp(30px, 8.6vw, 38px); letter-spacing: -0.8px; }
+  .lede { font-size: 16px; margin-bottom: 24px; }
+  .meta-row { gap: 10px 16px; margin-top: 22px; }
+  .cta-row .btn { flex: 1 1 auto; }
+  .btn { height: 46px; padding: 0 18px; }
+  .browser-bar { padding: 9px 12px; }
+  .browser-url {
+    min-width: 0; max-width: 100%;
+    padding: 6px 12px; font-size: 11.5px;
+  }
+  .browser-dots i { width: 9px; height: 9px; }
+  .cards-3 { gap: 14px; }
+  .card { padding: 18px; }
+  .card-media { margin: -18px -18px 14px; }
+  .section-head { margin-bottom: 32px; }
+  .section-head h2 { font-size: clamp(24px, 6.6vw, 30px); }
+  .tier { padding: 22px; }
+  .tier-price { font-size: 34px; }
+  .step { grid-template-columns: 38px 1fr; gap: 12px; }
+  .step-num { width: 38px; height: 38px; font-size: 15px; }
+  .footer { padding: 28px 0; margin-top: 40px; }
+  .footer-inner { justify-content: center; text-align: center; }
+  .footer-brand { width: 100%; justify-content: center; }
+  .footer-links { width: 100%; justify-content: center; }
+  .install-hero { padding: 56px 0 28px; }
+  .install-hero p { font-size: 16px; }
+  .legal-wrap { padding: 44px 18px 64px; }
 }
 
 @media (max-width: 560px) {
