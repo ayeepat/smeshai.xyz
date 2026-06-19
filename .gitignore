@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Source video recordings (originals kept locally, not deployed —
+# the site serves the compressed copies in assets/video/)
+/*.mp4
+
+# OS / editor cruft
+.DS_Store
+**/.DS_Store
+
+# Claude Code
+.claude/
+
+# Vercel
+.vercel/

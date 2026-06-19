@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>смэш — помощник для электронного журнала</title>
+  <link rel="icon" href="assets/icons/icon48.png" type="image/png" />
+  <link rel="stylesheet" href="styles/theme.css" />
+  <link rel="stylesheet" href="styles/site.css" />
+  <script src="scripts/theme.js"></script>
+  <script src="scripts/media.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="brand" aria-label="смэш — на главную">
+        <div class="brandmark" aria-hidden="true">с</div>
+        <div class="brand-text">
+          <span class="brand-name">смэш</span>
+          <span class="brand-sub">Помощник электронного журнала</span>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Основное меню">
+        <a href="index.html" class="nav-link active">Главная</a>
+        <a href="how-it-works.html" class="nav-link">Как это работает</a>
+        <a href="pricing.html" class="nav-link">Тарифы</a>
+        <a href="install.html" class="nav-link">Установить</a>
+      </nav>
+      <div class="nav-right">
+        <button id="themeBtn" class="icon-btn" title="Сменить тему" aria-label="Сменить тему">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        </button>
+        <a href="install.html" class="btn btn-primary btn-sm">Установить</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section hero">
+      <div class="wrap">
+        <div class="hero-copy">
+          <span class="chrome-badge">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 12 L2.91 6.75 A10.5 10.5 0 0 1 21.09 6.75 Z" fill="#EA4335"/>
+              <path d="M12 12 L21.09 6.75 A10.5 10.5 0 0 1 12 22.5 Z" fill="#34A853"/>
+              <path d="M12 12 L12 22.5 A10.5 10.5 0 0 1 2.91 6.75 Z" fill="#FBBC05"/>
+              <circle cx="12" cy="12" r="4.6" fill="#fff"/>
+              <circle cx="12" cy="12" r="3.7" fill="#4285F4"/>
+            </svg>
+            Расширение для Chrome
+            <span class="sep"></span>
+            <span class="muted">Chrome · Edge · Яндекс</span>
+          </span>
+          <h1 class="display">Домашка из электронного журнала — <em>за секунды</em>, а не за часы.</h1>
+          <p class="lede">
+            смэш читает домашние задания прямо в вашем электронном журнале — понимает
+            предмет и формат вопроса и выдаёт аккуратный ответ. Вложения подхватывает
+            сам: ничего скачивать вручную не нужно.
+          </p>
+          <div class="cta-row">
+            <a href="install.html" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Добавить в Chrome
+            </a>
+            <a href="how-it-works.html" class="btn btn-ghost">Как это работает</a>
+          </div>
+          <div class="meta-row">
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Работает в вашей сессии журнала
+            </span>
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              История 7 дней — локально
+            </span>
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Без сервера, без аккаунта
+            </span>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-media-wrap">
+            <div class="browser float">
+              <div class="browser-bar">
+                <span class="browser-dots"><i></i><i></i><i></i></span>
+                <span class="browser-url">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  электронный журнал
+                </span>
+              </div>
+              <video src="assets/video/journal.mp4" poster="assets/video/journal.jpg" autoplay loop muted playsinline preload="auto" aria-label="смэш решает домашку прямо в открытом электронном журнале"></video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Что умеет смэш</h2>
+          <p>Три вещи, которые экономят больше всего времени каждый школьный вечер.</p>
+        </div>
+        <div class="cards-3">
+          <div class="card">
+            <div class="card-media">
+              <span class="card-num">1</span>
+              <video src="assets/video/tests.mp4" poster="assets/video/tests.jpg" autoplay loop muted playsinline preload="metadata" aria-label="смэш решает тест и выдаёт ответы номерами"></video>
+            </div>
+            <h3>Решает тесты</h3>
+            <p>Один клик по странице теста — смэш делает скриншот, разбирает вопросы и отдаёт ответы короткими номерами и вариантами. Остаётся вставить.</p>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <span class="card-num">2</span>
+              <video src="assets/video/pdf.mp4" poster="assets/video/pdf.jpg" autoplay loop muted playsinline preload="metadata" aria-label="смэш сам подгружает pdf-вложение в диалог"></video>
+            </div>
+            <h3>Сам достаёт вложения</h3>
+            <p>Прикреплён pdf или docx? смэш находит файл, выгружает его прямо из задания и прикладывает к диалогу — без скачиваний и перетаскиваний вручную.</p>
+          </div>
+          <div class="card">
+            <div class="card-media">
+              <span class="card-num">3</span>
+              <video src="assets/video/gdz.mp4" poster="assets/video/gdz.jpg" autoplay loop muted playsinline preload="metadata" aria-label="смэш даёт ответы из ГДЗ по вашему учебнику"></video>
+            </div>
+            <h3>Знает ваши учебники</h3>
+            <p>смэш узнаёт ваши учебники и рабочие тетради и берёт готовые ответы из ГДЗ — по нужной странице и номеру, а не общими словами.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <div class="brandmark" aria-hidden="true">с</div>
+        <span>смэш — помощник электронного журнала</span>
+      </div>
+      <div class="footer-links">
+        <a href="legal/privacy.html" class="footer-link">Политика конфиденциальности</a>
+        <a href="legal/terms.html" class="footer-link">Условия использования</a>
+      </div>
+      <div class="footer-copy">© 2026 смэш. Все права защищены.</div>
+    </div>
+  </footer>
+</body>
+</html>

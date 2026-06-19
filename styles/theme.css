@@ -1,0 +1,172 @@
+/* смэш — site design tokens (mirrors the extension's warm theme). */
+
+@font-face {
+  font-family: "Manrope"; font-style: normal; font-weight: 200 800; font-display: swap;
+  src: url("../assets/fonts/manrope-cyrillic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Manrope"; font-style: normal; font-weight: 200 800; font-display: swap;
+  src: url("../assets/fonts/manrope-cyrillic-ext.woff2") format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: "Manrope"; font-style: normal; font-weight: 200 800; font-display: swap;
+  src: url("../assets/fonts/manrope-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Manrope"; font-style: normal; font-weight: 200 800; font-display: swap;
+  src: url("../assets/fonts/manrope-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,
+    U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  color-scheme: light;
+
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, system-ui, Helvetica, Arial, sans-serif;
+  --font-display: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, system-ui, sans-serif;
+
+  --bg: #faf6ec;
+  --card: #fffdf8;
+  --surface-2: #f3ecdb;
+  --chrome: rgba(250, 246, 236, 0.82);
+  --input-bg: #f1ead8;
+
+  --text: #2a2620;
+  --secondary: #6b6354;
+  --tertiary: #9a917f;
+
+  --separator: rgba(42, 38, 32, 0.10);
+  --border-strong: rgba(42, 38, 32, 0.18);
+  --hover: rgba(42, 38, 32, 0.045);
+
+  --accent: #1f8f8b;
+  --accent-hover: #1a7c78;
+  --accent-press: #166b68;
+  --accent-soft: rgba(31, 143, 139, 0.10);
+  --accent-soft-strong: rgba(31, 143, 139, 0.16);
+  --accent-glow: rgba(31, 143, 139, 0.42);
+  --on-accent: #fcfaf3;
+  --focus-ring: rgba(31, 143, 139, 0.32);
+
+  --green: #2c8a5a;
+  --warn: #b5751a;
+  --danger: #c7382e;
+
+  --r-xs: 8px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-xl: 22px;
+  --r-2xl: 28px;
+  --r-pill: 999px;
+
+  --shadow-btn: 0 1px 2px rgba(60, 50, 30, 0.06);
+  --shadow-card: 0 1px 2px rgba(60, 50, 30, 0.05), 0 10px 28px -14px rgba(60, 50, 30, 0.14);
+  --shadow-pop: 0 12px 40px -8px rgba(40, 33, 20, 0.20);
+  --shadow-accent: 0 2px 10px -3px rgba(31, 143, 139, 0.36);
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #15201f;
+  --card: #243331;
+  --surface-2: #1b2827;
+  --chrome: rgba(21, 32, 31, 0.82);
+  --input-bg: #1b2827;
+
+  --text: #e8e4d8;
+  --secondary: #a6b0ad;
+  --tertiary: #76817e;
+
+  --separator: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --hover: rgba(255, 255, 255, 0.06);
+
+  --accent: #4fd1c5;
+  --accent-hover: #6bdcd1;
+  --accent-press: #3dbcb0;
+  --accent-soft: rgba(79, 209, 197, 0.16);
+  --accent-soft-strong: rgba(79, 209, 197, 0.24);
+  --accent-glow: rgba(79, 209, 197, 0.40);
+  --on-accent: #0e1716;
+  --focus-ring: rgba(79, 209, 197, 0.40);
+
+  --green: #5bd07a;
+  --warn: #e8b05a;
+  --danger: #ff6b5e;
+
+  --shadow-btn: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px -14px rgba(0, 0, 0, 0.7);
+  --shadow-pop: 0 18px 50px -12px rgba(0, 0, 0, 0.75);
+  --shadow-accent: 0 2px 12px -3px rgba(79, 209, 197, 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg: #15201f;
+    --card: #243331;
+    --surface-2: #1b2827;
+    --chrome: rgba(21, 32, 31, 0.82);
+    --input-bg: #1b2827;
+    --text: #e8e4d8;
+    --secondary: #a6b0ad;
+    --tertiary: #76817e;
+    --separator: rgba(255, 255, 255, 0.09);
+    --border-strong: rgba(255, 255, 255, 0.18);
+    --hover: rgba(255, 255, 255, 0.06);
+    --accent: #4fd1c5;
+    --accent-hover: #6bdcd1;
+    --accent-press: #3dbcb0;
+    --accent-soft: rgba(79, 209, 197, 0.16);
+    --accent-soft-strong: rgba(79, 209, 197, 0.24);
+    --accent-glow: rgba(79, 209, 197, 0.40);
+    --on-accent: #0e1716;
+    --focus-ring: rgba(79, 209, 197, 0.40);
+    --green: #5bd07a;
+    --warn: #e8b05a;
+    --danger: #ff6b5e;
+    --shadow-btn: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px -14px rgba(0, 0, 0, 0.7);
+    --shadow-pop: 0 18px 50px -12px rgba(0, 0, 0, 0.75);
+    --shadow-accent: 0 2px 12px -3px rgba(79, 209, 197, 0.5);
+  }
+}
+
+* { box-sizing: border-box; }
+svg { flex: none; }
+svg[fill="none"] { stroke-width: 1.75; }
+
+::selection { background: var(--accent-soft-strong); color: var(--text); }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong); border-radius: var(--r-pill);
+  border: 3px solid transparent; background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--tertiary); background-clip: padding-box; }
+::-webkit-scrollbar-track { background: transparent; }
+
+:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus-ring); }
+
+.brandmark {
+  display: grid; place-items: center; flex: none;
+  width: 34px; height: 34px; border-radius: var(--r-sm);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--font-display);
+  font-weight: 800; font-size: 19px; line-height: 1; letter-spacing: -0.5px;
+  border: none;
+  box-shadow: var(--shadow-accent);
+  user-select: none;
+}
