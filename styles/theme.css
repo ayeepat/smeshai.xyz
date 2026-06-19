@@ -160,13 +160,10 @@ svg[fill="none"] { stroke-width: 1.75; }
 :focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus-ring); }
 
 .brandmark {
-  display: grid; place-items: center; flex: none;
-  width: 34px; height: 34px; border-radius: var(--r-sm);
-  background: var(--accent);
-  color: var(--on-accent);
-  font-family: var(--font-display);
-  font-weight: 800; font-size: 19px; line-height: 1; letter-spacing: -0.5px;
+  display: block; flex: none;
+  width: 34px; height: 34px;
+  object-fit: contain;
   border: none;
-  box-shadow: var(--shadow-accent);
   user-select: none;
+  -webkit-user-drag: none;
 }
