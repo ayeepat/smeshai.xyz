@@ -251,6 +251,29 @@ h1.display {
 }
 .hero-media-wrap > .browser { position: relative; z-index: 1; }
 
+/* Desktop only: stand the copy and the journal video side by side so the
+   video is in view the moment the page opens, instead of sitting a full
+   screen below the fold. Everything at <=880px keeps the original stacked
+   layout untouched (mobile is intentionally left as-is). */
+@media (min-width: 881px) {
+  .hero { padding-top: 48px; padding-bottom: 28px; }
+  .hero .wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.02fr);
+    align-items: center;
+    gap: 52px;
+  }
+  .hero-copy { max-width: 540px; }
+  .hero .display { font-size: clamp(38px, 3.4vw, 50px); }
+  .hero .lede { margin-bottom: 26px; }
+  .hero-media { margin-top: 0; }
+  /* The side-by-side hero is short, so the old 64px section padding left a
+     dead band before "Что умеет смэш AI". Pull that section up to close it
+     (desktop only); the heading + cards now fill the lower part of the
+     screen at any viewport height instead of leaving a void. */
+  .hero + .section { padding-top: 32px; }
+}
+
 /* ---- browser-framed media (the wide journal video) ------------------- */
 .browser {
   border-radius: var(--r-2xl);
