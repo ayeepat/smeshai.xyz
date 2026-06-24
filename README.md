@@ -16,7 +16,7 @@ npm run dev
 ## Структура
 
 ```
-index.html            — главная         (/home)
+home.html             — главная         (/home)
 how-it-works.html     — как это работает (/how-it-works)
 pricing.html          — тарифы          (/pricing)
 install.html          — установка       (/install)

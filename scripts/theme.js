@@ -21,16 +21,31 @@
     const btn = document.getElementById("themeBtn");
     if (!btn) return;
 
+    const mq = matchMedia("(prefers-color-scheme: dark)");
+
     function effective() {
       const explicit = root.getAttribute("data-theme");
       if (explicit) return explicit;
-      return matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      return mq.matches ? "dark" : "light";
     }
+
+    function syncLabel() {
+      const label = effective() === "dark" ? "Включить светлую тему" : "Включить тёмную тему";
+      btn.title = label;
+      btn.setAttribute("aria-label", label);
+    }
+    syncLabel();
 
     btn.addEventListener("click", () => {
       const next = effective() === "dark" ? "light" : "dark";
       apply(next);
       try { localStorage.setItem(KEY, next); } catch (_) {}
+      syncLabel();
     });
+
+    // Keep the label honest if the system theme flips while following it.
+    const onSystem = () => { if (!root.getAttribute("data-theme")) syncLabel(); };
+    if (mq.addEventListener) mq.addEventListener("change", onSystem);
+    else if (mq.addListener) mq.addListener(onSystem);
   });
 })();

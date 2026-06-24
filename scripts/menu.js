@@ -5,6 +5,7 @@
 
   function setOpen(open) {
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
     menu.setAttribute('data-open', open ? 'true' : 'false');
     document.body.classList.toggle('menu-open', open);
   }
