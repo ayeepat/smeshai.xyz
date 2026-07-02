@@ -5,6 +5,10 @@
   const KEY = "smesh-site-theme";
   const root = document.documentElement;
 
+  // Scroll-reveal styles apply only when scripting is on, so content is
+  // never stuck hidden for no-JS visitors.
+  root.classList.add("js");
+
   function apply(theme) {
     if (theme === "light" || theme === "dark") {
       root.setAttribute("data-theme", theme);

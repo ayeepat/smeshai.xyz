@@ -8,8 +8,10 @@
     { "source": "/index", "destination": "/home", "permanent": true },
     { "source": "/legal/privacy.html", "destination": "/privacy", "permanent": true },
     { "source": "/legal/privacy", "destination": "/privacy", "permanent": true },
-    { "source": "/legal/terms.html", "destination": "/terms", "permanent": true },
-    { "source": "/legal/terms", "destination": "/terms", "permanent": true }
+    { "source": "/legal/terms.html", "destination": "/agreement", "permanent": true },
+    { "source": "/legal/terms", "destination": "/agreement", "permanent": true },
+    { "source": "/terms", "destination": "/agreement", "permanent": true },
+    { "source": "/legal/agreement", "destination": "/agreement", "permanent": true }
   ],
   "headers": [
     {

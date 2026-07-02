@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="styles/site.css" />
   <script src="scripts/theme.js"></script>
   <script src="scripts/menu.js" defer></script>
+  <script src="scripts/fx.js" defer></script>
   <noscript>
     <style>
       @media (max-width: 880px) {
@@ -76,12 +77,13 @@
     <section class="section">
       <div class="wrap">
         <div class="section-head">
+          <span class="eyebrow">Тарифы</span>
           <h1>Простые тарифы</h1>
           <p>Начните бесплатно. Понравится — выберите план. Оплата через YooKassa.</p>
         </div>
 
         <div class="pricing-grid">
-          <div class="tier">
+          <div class="tier" data-reveal>
             <span class="tier-name">Старт</span>
             <div class="tier-price">0 ₽<small> / навсегда</small></div>
             <p class="tier-desc">Чтобы попробовать и понять, подходит ли смэш AI вам.</p>
@@ -102,7 +104,7 @@
             <button class="btn btn-ghost" type="button" disabled>Уже доступно</button>
           </div>
 
-          <div class="tier featured">
+          <div class="tier featured" data-reveal style="--rd: 1">
             <span class="tier-badge">Популярный</span>
             <span class="tier-name">Школьник</span>
             <div class="tier-price">299 ₽<small> / месяц</small></div>
@@ -128,7 +130,7 @@
             <button class="btn btn-primary" type="button">Оформить подписку</button>
           </div>
 
-          <div class="tier">
+          <div class="tier" data-reveal style="--rd: 2">
             <span class="tier-name">Год</span>
             <div class="tier-price">2 490 ₽<small> / год</small></div>
             <p class="tier-desc">Та же подписка, но почти на треть дешевле в пересчёте на месяц.</p>
@@ -151,23 +153,68 @@
         </div>
 
         <p style="text-align:center; color: var(--tertiary); font-size: 13px; margin-top: 32px;">
-          Оплата проходит через сервис YooKassa. Принимаем карты МИР, Visa, Mastercard и СБП.
+          Оплата проходит через сервис YooKassa. Принимаем карты МИР, Visa, Mastercard и СБП.<br />
+          Оформляя оплату, вы принимаете <a href="agreement.html">Пользовательское соглашение</a>
+          и <a href="privacy.html">Политику конфиденциальности</a>. Автопродления нет:
+          каждый платёж вы совершаете сами.
         </p>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <h2>Частые вопросы</h2>
+        </div>
+        <div class="faq-list" data-reveal>
+          <details class="faq-item">
+            <summary>Нужно ли создавать аккаунт?</summary>
+            <p>Нет. смэш AI работает в вашей вкладке электронного журнала — той, где вы уже вошли. Мы не просим отдельный логин и не храним ваши задания и ответы на своём сервере.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Что входит в бесплатный тариф?</summary>
+            <p>10 решений в день по всем предметам — без карты и без регистрации. Лимит обновляется каждый день, так что попробовать можно спокойно и не спеша.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Как проходит оплата?</summary>
+            <p>Через сервис YooKassa: карты МИР, Visa, Mastercard и СБП. Автопродления нет — каждый платёж вы подтверждаете сами, ничего не спишется незаметно.</p>
+          </details>
+          <details class="faq-item">
+            <summary>В каких браузерах работает смэш AI?</summary>
+            <p>В Chrome, Яндекс Браузере, Microsoft Edge и других браузерах на базе Chromium. Достаточно установить расширение из магазина вашего браузера.</p>
+          </details>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-inner">
-      <div class="footer-brand">
-        <img src="assets/icons/logo-mark.png" class="brandmark" alt="" aria-hidden="true" />
-        <span>смэш AI — помощник электронного журнала</span>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-col footer-about">
+          <a href="home.html" class="brand" aria-label="смэш AI — на главную">
+            <img src="assets/icons/logo-mark.png" class="brandmark" alt="" aria-hidden="true" />
+            <span class="brand-name">смэш AI</span>
+          </a>
+          <p>Помощник электронного журнала: решает тесты, сам достаёт вложения и находит ГДЗ по вашим учебникам.</p>
+        </div>
+        <nav class="footer-col" aria-label="Разделы сайта">
+          <h4>Продукт</h4>
+          <a href="home.html">Главная</a>
+          <a href="how-it-works.html">Как это работает</a>
+          <a href="pricing.html">Тарифы</a>
+          <a href="install.html">Установить</a>
+        </nav>
+        <nav class="footer-col" aria-label="Документы">
+          <h4>Документы</h4>
+          <a href="agreement.html">Пользовательское соглашение</a>
+          <a href="privacy.html">Политика конфиденциальности</a>
+        </nav>
       </div>
-      <div class="footer-links">
-        <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
-        <a href="terms.html" class="footer-link">Условия использования</a>
+      <div class="footer-bottom">
+        <span>© 2026 смэш AI. Все права защищены.</span>
+        <span>Работает в Chrome, Яндекс Браузере и Edge</span>
       </div>
-      <div class="footer-copy">© 2026 смэш AI. Все права защищены.</div>
     </div>
   </footer>
 </body>

@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="/styles/site.css" />
   <script src="/scripts/theme.js"></script>
   <script src="/scripts/menu.js" defer></script>
+  <script src="/scripts/fx.js" defer></script>
   <noscript>
     <style>
       @media (max-width: 880px) {
@@ -61,7 +62,7 @@
 
   <main>
     <section class="wrap install-hero">
-      <div class="notfound-code" aria-hidden="true">404</div>
+      <div class="notfound-code" aria-hidden="true">404<svg class="notfound-circle" viewBox="0 0 220 100" fill="none" preserveAspectRatio="none"><path pathLength="1" d="M18 50 C14 18 66 6 112 8 C168 10 206 24 204 50 C202 78 152 94 104 91 C52 88 21 76 24 44" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></div>
       <h1>Такой страницы нет</h1>
       <p>Похоже, страница переехала или её никогда не было. Вернитесь на главную или посмотрите, как работает смэш AI.</p>
       <div class="cta-row" style="justify-content: center; margin-top: 8px;">
@@ -72,16 +73,32 @@
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-inner">
-      <div class="footer-brand">
-        <img src="/assets/icons/logo-mark.png" class="brandmark" alt="" aria-hidden="true" />
-        <span>смэш AI — помощник электронного журнала</span>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-col footer-about">
+          <a href="/home" class="brand" aria-label="смэш AI — на главную">
+            <img src="/assets/icons/logo-mark.png" class="brandmark" alt="" aria-hidden="true" />
+            <span class="brand-name">смэш AI</span>
+          </a>
+          <p>Помощник электронного журнала: решает тесты, сам достаёт вложения и находит ГДЗ по вашим учебникам.</p>
+        </div>
+        <nav class="footer-col" aria-label="Разделы сайта">
+          <h4>Продукт</h4>
+          <a href="/home">Главная</a>
+          <a href="/how-it-works">Как это работает</a>
+          <a href="/pricing">Тарифы</a>
+          <a href="/install">Установить</a>
+        </nav>
+        <nav class="footer-col" aria-label="Документы">
+          <h4>Документы</h4>
+          <a href="/agreement">Пользовательское соглашение</a>
+          <a href="/privacy">Политика конфиденциальности</a>
+        </nav>
       </div>
-      <div class="footer-links">
-        <a href="/privacy" class="footer-link">Политика конфиденциальности</a>
-        <a href="/terms" class="footer-link">Условия использования</a>
+      <div class="footer-bottom">
+        <span>© 2026 смэш AI. Все права защищены.</span>
+        <span>Работает в Chrome, Яндекс Браузере и Edge</span>
       </div>
-      <div class="footer-copy">© 2026 смэш AI. Все права защищены.</div>
     </div>
   </footer>
 </body>

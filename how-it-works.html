@@ -28,6 +28,7 @@
   <script src="scripts/theme.js"></script>
   <script src="scripts/media.js" defer></script>
   <script src="scripts/menu.js" defer></script>
+  <script src="scripts/fx.js" defer></script>
   <noscript>
     <style>
       @media (max-width: 880px) {
@@ -86,28 +87,28 @@
             </p>
 
             <div class="steps">
-              <div class="step">
+              <div class="step" data-reveal>
                 <div class="step-num">1</div>
                 <div>
                   <h3>Установите расширение</h3>
-                  <p>Один клик в Chrome Web Store. смэш AI появится в панели расширений рядом с адресной строкой.</p>
+                  <p>Один клик в магазине вашего браузера — уже доступно в Microsoft Edge. смэш AI появится в панели расширений рядом с адресной строкой.</p>
                 </div>
               </div>
-              <div class="step">
+              <div class="step" data-reveal style="--rd: 1">
                 <div class="step-num">2</div>
                 <div>
                   <h3>Откройте электронный журнал</h3>
                   <p>Перейдите на страницу домашних заданий в журнале — в той вкладке, где вы уже вошли. Логиниться куда-то ещё не нужно.</p>
                 </div>
               </div>
-              <div class="step">
+              <div class="step" data-reveal style="--rd: 2">
                 <div class="step-num">3</div>
                 <div>
                   <h3>Нажмите на иконку смэш AI</h3>
                   <p>Расширение покажет неделю домашек, разбитую по дням. Ближайший день уже раскрыт.</p>
                 </div>
               </div>
-              <div class="step">
+              <div class="step" data-reveal style="--rd: 3">
                 <div class="step-num">4</div>
                 <div>
                   <h3>Нажмите «Решить»</h3>
@@ -132,16 +133,32 @@
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-inner">
-      <div class="footer-brand">
-        <img src="assets/icons/logo-mark.png" class="brandmark" alt="" aria-hidden="true" />
-        <span>смэш AI — помощник электронного журнала</span>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-col footer-about">
+          <a href="home.html" class="brand" aria-label="смэш AI — на главную">
+            <img src="assets/icons/logo-mark.png" class="brandmark" alt="" aria-hidden="true" />
+            <span class="brand-name">смэш AI</span>
+          </a>
+          <p>Помощник электронного журнала: решает тесты, сам достаёт вложения и находит ГДЗ по вашим учебникам.</p>
+        </div>
+        <nav class="footer-col" aria-label="Разделы сайта">
+          <h4>Продукт</h4>
+          <a href="home.html">Главная</a>
+          <a href="how-it-works.html">Как это работает</a>
+          <a href="pricing.html">Тарифы</a>
+          <a href="install.html">Установить</a>
+        </nav>
+        <nav class="footer-col" aria-label="Документы">
+          <h4>Документы</h4>
+          <a href="agreement.html">Пользовательское соглашение</a>
+          <a href="privacy.html">Политика конфиденциальности</a>
+        </nav>
       </div>
-      <div class="footer-links">
-        <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
-        <a href="terms.html" class="footer-link">Условия использования</a>
+      <div class="footer-bottom">
+        <span>© 2026 смэш AI. Все права защищены.</span>
+        <span>Работает в Chrome, Яндекс Браузере и Edge</span>
       </div>
-      <div class="footer-copy">© 2026 смэш AI. Все права защищены.</div>
     </div>
   </footer>
 </body>
