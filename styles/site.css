@@ -289,15 +289,15 @@ h1.display {
 .hero::before {
   content: ""; position: absolute; inset: 0;
   background:
-    radial-gradient(46% 60% at 84% 18%, var(--accent-soft) 0%, transparent 100%),
-    radial-gradient(40% 52% at 6% 88%, var(--accent-soft) 0%, transparent 100%);
+    radial-gradient(46% 60% at 84% 18%, var(--hero-glow) 0%, transparent 100%),
+    radial-gradient(40% 52% at 6% 88%, var(--hero-glow) 0%, transparent 100%);
   pointer-events: none;
 }
 /* Stacked mobile hero: one quiet wash behind the video only, so the copy
    sits on clean paper. */
 @media (max-width: 880px) {
   .hero::before {
-    background: radial-gradient(80% 42% at 50% 96%, var(--accent-soft) 0%, transparent 100%);
+    background: radial-gradient(80% 42% at 50% 96%, var(--hero-glow) 0%, transparent 100%);
     opacity: 0.75;
   }
 }
@@ -336,7 +336,7 @@ h1.display {
   content: ""; position: absolute; z-index: 0;
   left: 50%; top: 8%; transform: translateX(-50%);
   width: 86%; height: 90%;
-  background: radial-gradient(60% 60% at 50% 40%, var(--accent-soft-strong), transparent 70%);
+  background: radial-gradient(60% 60% at 50% 40%, var(--hero-glow-strong), transparent 70%);
   filter: blur(46px); opacity: 0.8; pointer-events: none;
 }
 .hero-media-wrap > .browser { position: relative; z-index: 1; }

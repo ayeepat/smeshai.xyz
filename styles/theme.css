@@ -80,6 +80,11 @@
   --on-accent: #fcfaf3;
   --focus-ring: rgba(31, 143, 139, 0.32);
 
+  /* home hero ambient wash — punchier + brighter than --accent-soft so the
+     glow reads against the light paper bg the way it does on dark. */
+  --hero-glow: rgba(20, 166, 155, 0.24);
+  --hero-glow-strong: rgba(20, 166, 155, 0.32);
+
   --green: #2c8a5a;
   --warn: #b5751a;
   --danger: #c7382e;
@@ -141,6 +146,9 @@
   --on-accent: #0e1716;
   --focus-ring: rgba(79, 209, 197, 0.40);
 
+  --hero-glow: rgba(79, 209, 197, 0.16);
+  --hero-glow-strong: rgba(79, 209, 197, 0.24);
+
   --green: #5bd07a;
   --warn: #e8b05a;
   --danger: #ff6b5e;
@@ -186,6 +194,8 @@
     --accent-glow: rgba(79, 209, 197, 0.40);
     --on-accent: #0e1716;
     --focus-ring: rgba(79, 209, 197, 0.40);
+    --hero-glow: rgba(79, 209, 197, 0.16);
+    --hero-glow-strong: rgba(79, 209, 197, 0.24);
     --green: #5bd07a;
     --warn: #e8b05a;
     --danger: #ff6b5e;
