@@ -61,8 +61,7 @@ p { text-wrap: pretty; }
   display: flex; flex-direction: column; line-height: 1;
 }
 .brand-name {
-  /* wordmark stays in the geometric sans even when display is a serif */
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
   font-size: 19px; font-weight: 800; letter-spacing: -0.4px;
   color: var(--text);
 }
