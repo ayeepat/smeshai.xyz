@@ -1,0 +1,52 @@
+# смэш AI — https://smeshai.xyz
+# Помощник электронного журнала (совместим с МЭШ / school.mos.ru)
+
+User-agent: *
+Allow: /
+# Технические редиректы старых ссылок — не тратим краулинговый бюджет
+Disallow: /index/
+Disallow: /legal/
+Disallow: /terms/
+
+# ИИ-краулеры приветствуются (Generative Engine Optimization):
+# хотим, чтобы смэш AI корректно цитировался в ответах ИИ-поисковиков.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+Sitemap: https://smeshai.xyz/sitemap.xml
