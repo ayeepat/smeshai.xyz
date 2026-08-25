@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "смэш — landing site for the homework helper extension",
   "scripts": {
-    "dev": "live-server --port=5173 --no-browser"
+    "dev": "live-server --port=5173 --no-browser",
+    "test": "node tests/checkout-static-regression.mjs"
   },
   "keywords": ["mesh", "homework", "chrome-extension"],
   "author": "",

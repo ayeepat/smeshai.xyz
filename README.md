@@ -19,6 +19,8 @@ npm run dev
 home/index.html          — главная          (/home/)
 how-it-works/index.html  — как это работает  (/how-it-works/)
 pricing/index.html       — тарифы           (/pricing/)
+checkout/index.html      — оформление оплаты (/checkout/?plan=month|school)
+checkout/success/index.html — проверка статуса оплаты (/checkout/success/)
 install/index.html       — установка        (/install/)
 privacy/index.html       — политика конфиденциальности (/privacy/)
 agreement/index.html     — пользовательское соглашение (/agreement/)
@@ -26,8 +28,13 @@ index.html                — редирект / → /home/
 terms/, legal/*           — редиректы старых ссылок на /agreement/ и /privacy/
 assets/                   — шрифты, иконки, видео (сжатые демо-ролики)
 styles/                   — токены темы и стили сайта
-scripts/                  — переключатель темы и ленивое воспроизведение видео
+scripts/                  — тема, видео и клиентская логика оформления оплаты
 ```
+
+Страницы оформления и статуса оплаты закрыты от индексации и намеренно не
+добавлены в `sitemap.xml`. Цена, привязка Telegram и итоговый статус платежа
+подтверждаются сервером; возврат пользователя с платёжной страницы сам по себе
+не считается успешной оплатой.
 
 Чистые URL — это папка с `index.html` внутри (стандартное поведение
 GitHub Pages), поэтому ссылки внутри страниц пишутся абсолютными путями

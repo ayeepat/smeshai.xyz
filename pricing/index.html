@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="Тарифы смэш AI — помощника для электронного журнала. Выберите подходящий план." />
   <meta name="twitter:image" content="https://smeshai.xyz/og-imagemesh.PNG" />
   <meta name="author" content="Саклаков Даниил Денисович" />
-  <meta name="keywords" content="смэш AI тарифы, стоимость смэш AI, подписка, помощник домашних заданий, цена, электронный дневник, МЭШ, school.mos.ru, решение тестов, ГДЗ, оплата Robokassa" />
+  <meta name="keywords" content="смэш AI тарифы, стоимость смэш AI, подписка, помощник домашних заданий, цена, электронный дневник, МЭШ, school.mos.ru, решение тестов, ГДЗ" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta property="og:locale" content="ru_RU" />
   <meta name="geo.region" content="RU" />
@@ -32,11 +32,10 @@
   <link rel="alternate" hreflang="ru-RU" href="https://smeshai.xyz/pricing/" />
   <link rel="alternate" hreflang="x-default" href="https://smeshai.xyz/pricing/" />
   <link rel="stylesheet" href="/styles/theme.css?v=2" />
-  <link rel="stylesheet" href="/styles/site.css?v=3" />
+  <link rel="stylesheet" href="/styles/site.css?v=5" />
   <script src="/scripts/theme.js"></script>
   <script src="/scripts/menu.js" defer></script>
   <script src="/scripts/fx.js" defer></script>
-  <script src="/scripts/payment-widgets.js?v=2" defer></script>
   <noscript>
     <style>
       @media (max-width: 880px) {
@@ -76,12 +75,12 @@
           {
             "@type": "Question",
             "name": "Как проходит оплата?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Через сервис Robokassa: карты МИР, Visa, Mastercard и СБП. Автопродления нет — каждый платёж вы подтверждаете сами, ничего не спишется незаметно." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Вы выбираете тариф, подключаете Telegram для получения ключа и переходите к оплате на защищённой странице платёжного сервиса. Автопродления нет — каждый платёж вы подтверждаете сами." }
           },
           {
             "@type": "Question",
             "name": "Как я получу доступ после оплаты?",
-            "acceptedAnswer": { "@type": "Answer", "text": "смэш AI — цифровой продукт, доставка не требуется. Сразу после оплаты на ваш email (и/или в Telegram, если оплата шла через него) приходит лицензионный ключ. Введите его в настройках расширения — подписка активируется мгновенно." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Перед оплатой вы подключаете Telegram-бота. После подтверждения платежа бот отправит лицензионный ключ. Введите его в настройках расширения, чтобы активировать подписку." }
           },
           {
             "@type": "Question",
@@ -135,18 +134,14 @@
         <div class="section-head">
           <span class="eyebrow">Тарифы</span>
           <h1>Простые тарифы</h1>
-          <p>Один доступ, два срока: 30 дней или 9 месяцев учебного периода. Оплата через Robokassa.</p>
+          <p>Один доступ, два срока: 30 дней или 9 месяцев учебного периода. Оплата оформляется на отдельной странице.</p>
         </div>
 
         <div class="pricing-grid">
           <div class="tier featured" data-reveal>
             <span class="tier-badge">Популярный</span>
             <span class="tier-name">Месяц</span>
-            <div class="tier-price" data-monthly-price>
-              <span class="tier-price-standard" data-standard-price>149 ₽</span>
-              <span class="tier-price-discount" data-discount-price hidden>10 ₽</span>
-              <small> / месяц</small>
-            </div>
+            <div class="tier-price">149 ₽<small> / месяц</small></div>
             <p class="tier-desc">Безлимит на каждый день, тесты и автоподгрузка файлов.</p>
             <ul>
               <li>
@@ -166,29 +161,7 @@
                 Приоритет в скорости ответа
               </li>
             </ul>
-            <form class="promo-form" data-promo-form novalidate>
-              <label class="promo-label" for="monthlyPromo">Промокод</label>
-              <div class="promo-control">
-                <input
-                  class="promo-input"
-                  id="monthlyPromo"
-                  name="promoCode"
-                  type="text"
-                  placeholder="Введите код"
-                  autocomplete="off"
-                  autocapitalize="characters"
-                  spellcheck="false"
-                  maxlength="32"
-                  aria-describedby="monthlyPromoMessage"
-                />
-                <button class="btn btn-ghost promo-submit" type="submit">Применить</button>
-              </div>
-              <p class="promo-message" id="monthlyPromoMessage" data-promo-message aria-live="polite"></p>
-            </form>
-            <div class="robokassa-payment" data-payment-title="Оплата доступа к смэш AI на 30 дней">
-              <script type="text/javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormSS.js?EncodedInvoiceId=1JX_sp3DNU-uYFsEkoqHAw"></script>
-              <a class="btn btn-primary robokassa-payment-fallback" href="https://auth.robokassa.ru/merchant/Invoice/1JX_sp3DNU-uYFsEkoqHAw">Оплатить 149 ₽</a>
-            </div>
+            <a class="btn btn-primary" href="/checkout/?plan=month">Купить за 149 ₽</a>
           </div>
 
           <div class="tier" data-reveal style="--rd: 1">
@@ -209,25 +182,19 @@
                 Ранний доступ к новым функциям
               </li>
             </ul>
-            <div class="robokassa-payment" data-payment-title="Оплата доступа к смэш AI на 9 месяцев">
-              <script type="text/javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormMS.js?EncodedInvoiceId=UL28duE9l06IJV_5zGJsYQ"></script>
-              <a class="btn btn-ghost robokassa-payment-fallback" href="https://auth.robokassa.ru/merchant/Invoice/UL28duE9l06IJV_5zGJsYQ">Оплатить 999 ₽</a>
-            </div>
+            <a class="btn btn-ghost" href="/checkout/?plan=school">Купить за 999 ₽</a>
           </div>
         </div>
 
         <p style="text-align:center; color: var(--tertiary); font-size: 13px; margin-top: 32px;">
-          Оплата проходит через сервис Robokassa. Принимаем карты МИР, Visa, Mastercard и СБП.<br />
-          Оформляя оплату, вы принимаете <a href="/agreement/">Пользовательское соглашение</a>
-          и <a href="/privacy/">Политику конфиденциальности</a>. Автопродления нет:
-          каждый платёж вы совершаете сами.
+          Оплата оформляется на отдельной защищённой странице. Автопродления нет:
+          каждый платёж вы совершаете сами.<br />
+          Перед оплатой нужно подключить Telegram-бота — туда придёт лицензионный ключ.
         </p>
 
         <p style="text-align:center; color: var(--tertiary); font-size: 13px; margin-top: 12px;">
-          <strong>Как вы получите доступ:</strong> смэш AI — цифровой продукт, доставка курьером
-          или почтой не требуется. Сразу после оплаты на указанный email (и/или в Telegram, если
-          оплата шла через него) приходит лицензионный ключ. Вставьте его в настройках расширения —
-          подписка активируется мгновенно.
+          <strong>Как вы получите доступ:</strong> после подтверждения платежа бот отправит
+          лицензионный ключ в Telegram. Вставьте его в настройках расширения — подписка активируется.
         </p>
       </div>
     </section>
@@ -248,11 +215,11 @@
           </details>
           <details class="faq-item">
             <summary>Как проходит оплата?</summary>
-            <p>Через сервис Robokassa: карты МИР, Visa, Mastercard и СБП. Автопродления нет — каждый платёж вы подтверждаете сами, ничего не спишется незаметно.</p>
+            <p>Вы выбираете тариф, подключаете Telegram для получения ключа и переходите к оплате на защищённой странице платёжного сервиса. Автопродления нет — каждый платёж вы подтверждаете сами.</p>
           </details>
           <details class="faq-item">
             <summary>Как я получу доступ после оплаты?</summary>
-            <p>смэш AI — цифровой продукт, доставка не требуется. Сразу после оплаты на ваш email (и/или в Telegram, если оплата шла через него) приходит лицензионный ключ. Введите его в настройках расширения — подписка активируется мгновенно.</p>
+            <p>Перед оплатой вы подключаете Telegram-бота. После подтверждения платежа бот отправит лицензионный ключ. Введите его в настройках расширения, чтобы активировать подписку.</p>
           </details>
           <details class="faq-item">
             <summary>В каких браузерах работает смэш AI?</summary>
