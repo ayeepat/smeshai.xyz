@@ -36,6 +36,7 @@
   <script src="/scripts/theme.js"></script>
   <script src="/scripts/menu.js" defer></script>
   <script src="/scripts/fx.js" defer></script>
+  <script src="/scripts/payment-widgets.js" defer></script>
   <noscript>
     <style>
       @media (max-width: 880px) {
@@ -56,7 +57,7 @@
         "brand": { "@type": "Brand", "name": "смэш AI" },
         "offers": [
           { "@type": "Offer", "name": "Месяц", "price": "149", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://smeshai.xyz/pricing/", "description": "Безлимит решений, помощь с тестами, автоподгрузка вложений — в месяц" },
-          { "@type": "Offer", "name": "Год", "price": "999", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://smeshai.xyz/pricing/", "description": "Всё из тарифа «Месяц» на год со скидкой около 44%" }
+          { "@type": "Offer", "name": "9 месяцев", "price": "999", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://smeshai.xyz/pricing/", "description": "Всё из тарифа «Месяц» на 9 месяцев учебного периода" }
         ]
       },
       {
@@ -70,7 +71,7 @@
           {
             "@type": "Question",
             "name": "Что входит в подписку?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Безлимит решений по всем предметам, помощь с тестами журнала, автоподгрузка вложений и приоритет в скорости ответа. Тарифы «Месяц» и «Год» отличаются только сроком и ценой." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Безлимит решений по всем предметам, помощь с тестами журнала, автоподгрузка вложений и приоритет в скорости ответа. Тарифы на 30 дней и 9 месяцев отличаются только сроком и ценой." }
           },
           {
             "@type": "Question",
@@ -134,7 +135,7 @@
         <div class="section-head">
           <span class="eyebrow">Тарифы</span>
           <h1>Простые тарифы</h1>
-          <p>Один доступ, два срока: месяц или год подешевле. Оплата через Robokassa.</p>
+          <p>Один доступ, два срока: 30 дней или 9 месяцев учебного периода. Оплата через Robokassa.</p>
         </div>
 
         <div class="pricing-grid">
@@ -161,13 +162,16 @@
                 Приоритет в скорости ответа
               </li>
             </ul>
-            <button class="btn btn-primary" type="button">Оформить подписку</button>
+            <div class="robokassa-payment" data-payment-title="Оплата доступа к смэш AI на 30 дней">
+              <script type="text/javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormSS.js?EncodedInvoiceId=1JX_sp3DNU-uYFsEkoqHAw"></script>
+              <a class="btn btn-primary robokassa-payment-fallback" href="https://auth.robokassa.ru/merchant/Invoice/1JX_sp3DNU-uYFsEkoqHAw">Оплатить 149 ₽</a>
+            </div>
           </div>
 
           <div class="tier" data-reveal style="--rd: 1">
-            <span class="tier-name">Год</span>
-            <div class="tier-price">999 ₽<small> / год</small></div>
-            <p class="tier-desc">Та же подписка, но почти вдвое дешевле в пересчёте на месяц.</p>
+            <span class="tier-name">Учебный период</span>
+            <div class="tier-price">999 ₽<small> / 9 месяцев</small></div>
+            <p class="tier-desc">Доступ на учебный период с сентября по май, без оплаты летних месяцев.</p>
             <ul>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
@@ -175,14 +179,17 @@
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                Экономия 44%
+                Экономия 342 ₽ против 9 помесячных оплат
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                 Ранний доступ к новым функциям
               </li>
             </ul>
-            <button class="btn btn-ghost" type="button">Оформить на год</button>
+            <div class="robokassa-payment" data-payment-title="Оплата доступа к смэш AI на 9 месяцев">
+              <script type="text/javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormMS.js?EncodedInvoiceId=UL28duE9l06IJV_5zGJsYQ"></script>
+              <a class="btn btn-ghost robokassa-payment-fallback" href="https://auth.robokassa.ru/merchant/Invoice/UL28duE9l06IJV_5zGJsYQ">Оплатить 999 ₽</a>
+            </div>
           </div>
         </div>
 
@@ -214,7 +221,7 @@
           </details>
           <details class="faq-item">
             <summary>Что входит в подписку?</summary>
-            <p>Безлимит решений по всем предметам, помощь с тестами журнала, автоподгрузка вложений и приоритет в скорости ответа. Тарифы «Месяц» и «Год» отличаются только сроком и ценой.</p>
+            <p>Безлимит решений по всем предметам, помощь с тестами журнала, автоподгрузка вложений и приоритет в скорости ответа. Тарифы на 30 дней и 9 месяцев отличаются только сроком и ценой.</p>
           </details>
           <details class="faq-item">
             <summary>Как проходит оплата?</summary>

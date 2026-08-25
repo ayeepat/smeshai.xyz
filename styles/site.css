@@ -929,6 +929,20 @@ h1.display {
 }
 .tier li svg { color: var(--accent); margin-top: 3px; }
 .tier .btn { margin-top: auto; width: 100%; }
+.robokassa-payment {
+  min-height: 82px;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.robokassa-payment iframe {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.robokassa-payment.has-widget .robokassa-payment-fallback { display: none; }
 
 @media (max-width: 880px) {
   .pricing-grid { grid-template-columns: 1fr; }
