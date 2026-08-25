@@ -381,10 +381,12 @@
       return false;
     }
     if (!value.fields || typeof value.fields !== "object" || Array.isArray(value.fields)) return false;
-    var required = ["MerchantLogin", "OutSum", "InvId", "SignatureValue", "Shp_order_id"];
+    // New checkouts use Robokassa's documented minimal signature and therefore
+    // intentionally contain no optional Shp_* fields. InvId is the signed order
+    // identifier and remains the client-side cross-check against this session.
+    var required = ["MerchantLogin", "OutSum", "InvId", "SignatureValue"];
     return required.every(function (key) { return String(value.fields[key] || "").length > 0; }) &&
-      String(value.fields.InvId) === String(session.order_id) &&
-      String(value.fields.Shp_order_id) === String(session.order_id);
+      String(value.fields.InvId) === String(session.order_id);
   }
 
   function submitProviderForm(payment) {

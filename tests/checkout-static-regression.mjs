@@ -24,6 +24,12 @@ assert.equal(
 );
 assert.match(checkoutJs, /payload\.promo_code\s*=\s*promoCode/,
   "checkout must send entered promo codes to the server");
+assert.doesNotMatch(checkoutJs, /required\s*=\s*\[[^\]]*Shp_order_id/,
+  "minimal Robokassa checkout responses must not require optional Shp_* fields");
+assert.doesNotMatch(checkoutJs, /fields\.Shp_order_id/,
+  "client order validation must use the signed InvId, not an omitted Shp_* field");
+assert.match(checkoutJs, /String\(value\.fields\.InvId\)\s*===\s*String\(session\.order_id\)/,
+  "checkout must cross-check signed InvId against the local order");
 assert.match(checkoutJs, /telegram_opened:\s*value\.telegram_opened === true/, "Telegram-open state must survive a reload");
 assert.match(checkoutJs, /lockCheckoutChoice\(telegramLinkOpened\)/, "status polling must preserve the Telegram mutation lock");
 assert.match(successJs, /sessionStorage\.removeItem\(STORAGE_KEY\)/, "terminal success must clear the checkout session");
