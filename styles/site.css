@@ -910,10 +910,23 @@ h1.display {
   line-height: 1;
 }
 .tier-price small {
+  display: inline-block;
   font-size: 14px; font-weight: 600;
   color: var(--secondary);
   letter-spacing: 0;
+  white-space: nowrap;
 }
+.tier-price-standard,
+.tier-price-discount:not([hidden]) { display: inline-block; }
+.tier-price.is-discounted .tier-price-standard {
+  margin-right: 8px;
+  color: var(--tertiary);
+  font-size: 17px;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  vertical-align: 5px;
+}
+.tier-price.is-discounted .tier-price-discount { color: var(--accent); }
 .tier-desc {
   color: var(--secondary);
   font-size: 14px;
@@ -929,6 +942,69 @@ h1.display {
 }
 .tier li svg { color: var(--accent); margin-top: 3px; }
 .tier .btn { margin-top: auto; width: 100%; }
+.promo-form {
+  margin: 0 0 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--separator);
+}
+.promo-label {
+  display: block;
+  margin: 0 0 7px 2px;
+  color: var(--secondary);
+  font-size: 12.5px;
+  font-weight: 700;
+}
+.promo-control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+.promo-input {
+  min-width: 0;
+  height: 44px;
+  padding: 0 15px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-pill);
+  background: var(--input-bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: border-color .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease);
+}
+.promo-input::placeholder {
+  color: var(--secondary);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.promo-input:hover { border-color: var(--accent); }
+.promo-submit {
+  width: auto !important;
+  min-width: 108px;
+  padding: 0 15px;
+  font-size: 13px;
+}
+.promo-submit:disabled {
+  cursor: default;
+  opacity: .68;
+}
+.promo-message {
+  min-height: 18px;
+  margin: 6px 3px 0;
+  color: var(--tertiary);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.promo-form.is-error .promo-input { border-color: var(--danger); }
+.promo-form.is-error .promo-message { color: var(--danger); }
+.promo-form.is-success .promo-input {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.promo-form.is-success .promo-message { color: var(--accent-press); }
 .robokassa-payment {
   min-height: 82px;
   margin-top: auto;
@@ -946,6 +1022,11 @@ h1.display {
 
 @media (max-width: 880px) {
   .pricing-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 379px) {
+  .robokassa-payment iframe { display: none; }
+  .robokassa-payment.has-widget .robokassa-payment-fallback { display: inline-flex; }
 }
 
 /* ---- FAQ (pricing page) ------------------------------------------------ */
