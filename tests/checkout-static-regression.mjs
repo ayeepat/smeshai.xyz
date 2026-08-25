@@ -2,8 +2,9 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
-const [checkoutHtml, checkoutJs, successJs, legacyWidgets, pricingHtml, css] = await Promise.all([
+const [checkoutHtml, successHtml, checkoutJs, successJs, legacyWidgets, pricingHtml, css] = await Promise.all([
   read("checkout/index.html"),
+  read("checkout/success/index.html"),
   read("scripts/checkout.js"),
   read("scripts/checkout-success.js"),
   read("scripts/payment-widgets.js"),
@@ -16,6 +17,11 @@ for (const [name, source] of Object.entries({ checkoutHtml, checkoutJs, legacyWi
 }
 
 assert.match(checkoutHtml, /name="promo_code"/, "checkout must keep the promo input");
+assert.equal(
+  /Саклаков|Даниил|Денисович/.test(checkoutHtml + successHtml),
+  false,
+  "checkout-facing pages must use the service identity, not the operator's personal name"
+);
 assert.match(checkoutJs, /payload\.promo_code\s*=\s*promoCode/,
   "checkout must send entered promo codes to the server");
 assert.match(checkoutJs, /telegram_opened:\s*value\.telegram_opened === true/, "Telegram-open state must survive a reload");
