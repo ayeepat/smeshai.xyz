@@ -4,9 +4,9 @@
   "description": "смэш — landing site for the homework helper extension",
   "scripts": {
     "dev": "live-server --port=5173 --no-browser",
-    "test": "node tests/checkout-static-regression.mjs"
+    "test": "node tests/checkout-static-regression.mjs && node tests/visible-copy-regression.mjs"
   },
-  "keywords": ["mesh", "homework", "chrome-extension"],
+  "keywords": ["electronic-journal", "homework", "chrome-extension"],
   "author": "",
   "license": "MIT",
   "devDependencies": {

@@ -7,6 +7,14 @@
   <meta name="description" content="Оформление оплаты доступа к смэш AI." />
   <meta name="robots" content="noindex, nofollow, noarchive" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <!-- This page holds the checkout capability token and hands signed fields to
+       the payment provider, so it gets the one policy that still limits damage
+       after an injected same-origin asset: no inline script, and nowhere to
+       send the token. form-action must keep 'self' — both forms here submit to
+       themselves and are cancelled in JS, so a native submit (JS blocked or
+       broken) must not be blocked as a side effect. img-src needs data: for the
+       inline SVG backgrounds in site.css. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://smeshapi.site; form-action 'self' https://auth.robokassa.ru; base-uri 'none'; object-src 'none'; frame-src 'none'" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png" />
