@@ -22,4 +22,14 @@ for (const file of await collect('.')) {
   assert.doesNotMatch(source, FORBIDDEN_PLATFORM_COPY, `${file} exposes platform-specific copy`);
 }
 
+const processorPage = await readFile('processors/index.html', 'utf8');
+assert.match(processorPage, /url\.protocol === 'https:' \? safe\(url\.href\) : '#'/,
+  'processor privacy links must reject active/non-HTTPS URL schemes');
+assert.match(processorPage, /safeHttps\(item\.privacy_url\)/,
+  'the live register must apply the URL sanitizer at the HTML sink');
+
+const siteCss = await readFile('styles/site.css', 'utf8');
+assert.match(siteCss, /@media \(max-width: 640px\)[\s\S]*?\.legal-wrap h1\s*\{[\s\S]*?font-size:\s*clamp\(23px, 7\.2vw, 28px\)/,
+  'legal page headings must fit the 360px mobile viewport');
+
 console.log('visible website copy regression passed');

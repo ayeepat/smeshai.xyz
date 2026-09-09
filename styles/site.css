@@ -1163,6 +1163,16 @@ h1.display {
 }
 .legal-body hr { border: 0; border-top: 1px solid var(--separator); margin: 36px 0; }
 
+@media (max-width: 640px) {
+  /* This rule must follow the base legal styles: the earlier global mobile
+     block otherwise loses the cascade and the long Russian H1 overflows 360px. */
+  .legal-wrap { padding: 44px 18px 64px; }
+  .legal-wrap h1 {
+    font-size: clamp(23px, 7.2vw, 28px);
+    hyphens: auto;
+  }
+}
+
 /* ---- install page ----------------------------------------------------- */
 .install-hero {
   text-align: center;
