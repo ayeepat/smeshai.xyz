@@ -1,5 +1,5 @@
 // смэш — install page browser picker. Each browser is a tab with its own
-// store link and instructions. Without JS the Edge panel (the one that's
+// store link and instructions. Without JS the Chrome panel (the primary one)
 // live) stays visible, so the page still works.
 
 (function () {

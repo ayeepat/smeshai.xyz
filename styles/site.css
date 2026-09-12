@@ -1223,7 +1223,7 @@ h1.display {
 }
 
 /* ---- browser picker (install page) ------------------------------------
-   Three tabs — Edge / Chrome / Яндекс — each opening its own store link
+   Three tabs — Chrome / Edge / Яндекс — each opening its own store link
    and step-by-step instructions. */
 .store-tabs {
   display: flex; flex-wrap: wrap; gap: 10px;
@@ -1263,7 +1263,6 @@ h1.display {
   display: flex; flex-direction: column; align-items: center; gap: 12px;
 }
 .store-note { margin: 0; max-width: 460px; color: var(--tertiary); font-size: 13px; line-height: 1.55; }
-.btn.is-soon { opacity: 0.55; pointer-events: none; user-select: none; }
 .store-panel .install-steps { margin-top: 36px; }
 
 @media (max-width: 560px) {

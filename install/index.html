@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>смэш AI — установить</title>
-  <meta name="description" content="Установите смэш AI для Microsoft Edge, Chrome или Яндекс Браузера и решайте задания электронного журнала за пару секунд." />
+  <meta name="description" content="Установите смэш AI для Google Chrome, Microsoft Edge или Яндекс Браузера и решайте задания электронного журнала за пару секунд." />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png" />
@@ -13,7 +13,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="смэш AI" />
   <meta property="og:title" content="смэш AI — установить" />
-  <meta property="og:description" content="Установите смэш AI для Microsoft Edge, Chrome или Яндекс Браузера и решайте задания электронного журнала за пару секунд." />
+  <meta property="og:description" content="Установите смэш AI для Google Chrome, Microsoft Edge или Яндекс Браузера и решайте задания электронного журнала за пару секунд." />
   <meta property="og:url" content="https://smeshai.xyz/install/" />
   <meta property="og:image" content="https://smeshai.xyz/og-electronic-journal.PNG" />
   <meta property="og:image:width" content="1200" />
@@ -21,7 +21,7 @@
   <meta property="og:image:alt" content="смэш AI — помощник электронного журнала" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="смэш AI — установить" />
-  <meta name="twitter:description" content="Установите смэш AI для Microsoft Edge, Chrome или Яндекс Браузера и решайте задания электронного журнала за пару секунд." />
+  <meta name="twitter:description" content="Установите смэш AI для Google Chrome, Microsoft Edge или Яндекс Браузера и решайте задания электронного журнала за пару секунд." />
   <meta name="twitter:image" content="https://smeshai.xyz/og-electronic-journal.PNG" />
   <meta name="author" content="Саклаков Даниил Денисович" />
   <meta name="keywords" content="установить смэш AI, скачать смэш AI, расширение для Chrome, Microsoft Edge Add-ons, Яндекс Браузер, помощник домашних заданий, электронный журнал, решение тестов, ГДЗ" />
@@ -55,9 +55,9 @@
     "applicationSubCategory": "Browser Extension",
     "operatingSystem": "Google Chrome, Microsoft Edge, Яндекс Браузер, Chromium",
     "url": "https://smeshai.xyz/install/",
-    "downloadUrl": "https://microsoftedge.microsoft.com/addons/detail/jockjfcmofofpjjpoljclneoabhcioao",
+    "downloadUrl": "https://chromewebstore.google.com/detail/%D1%81%D0%BC%D1%8D%D1%88-ai/gbihhellmceffkjmolejogbdlgigkfpp",
     "inLanguage": "ru-RU",
-    "description": "Установите смэш AI для Microsoft Edge, Chrome или Яндекс Браузера и решайте задания электронного журнала за пару секунд.",
+    "description": "Установите смэш AI для Google Chrome, Microsoft Edge или Яндекс Браузера и решайте задания электронного журнала за пару секунд.",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "RUB" },
     "publisher": {
       "@type": "Organization",
@@ -107,7 +107,18 @@
       <p>Выберите свой браузер — покажем нужную кнопку и короткую инструкцию. Работает в любом браузере на базе Chromium.</p>
 
       <div class="store-tabs" role="tablist" aria-label="Выбор браузера">
-        <button type="button" class="store-tab is-active" id="tab-edge" role="tab" aria-selected="true" aria-controls="panel-edge">
+        <button type="button" class="store-tab is-active" id="tab-chrome" role="tab" aria-selected="true" aria-controls="panel-chrome">
+          <svg class="store-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 12 L2.91 6.75 A10.5 10.5 0 0 1 21.09 6.75 Z" fill="#EA4335"/>
+            <path d="M12 12 L21.09 6.75 A10.5 10.5 0 0 1 12 22.5 Z" fill="#34A853"/>
+            <path d="M12 12 L12 22.5 A10.5 10.5 0 0 1 2.91 6.75 Z" fill="#FBBC05"/>
+            <circle cx="12" cy="12" r="4.6" fill="#fff"/>
+            <circle cx="12" cy="12" r="3.7" fill="#4285F4"/>
+          </svg>
+          Google Chrome
+          <span class="store-tag store-tag--live">Доступно</span>
+        </button>
+        <button type="button" class="store-tab" id="tab-edge" role="tab" aria-selected="false" aria-controls="panel-edge" tabindex="-1">
           <svg class="store-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
               <linearGradient id="edgeStore" x1="3" y1="20" x2="20" y2="5" gradientUnits="userSpaceOnUse">
@@ -120,28 +131,17 @@
           Microsoft Edge
           <span class="store-tag store-tag--live">Доступно</span>
         </button>
-        <button type="button" class="store-tab" id="tab-chrome" role="tab" aria-selected="false" aria-controls="panel-chrome" tabindex="-1">
-          <svg class="store-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12 12 L2.91 6.75 A10.5 10.5 0 0 1 21.09 6.75 Z" fill="#EA4335"/>
-            <path d="M12 12 L21.09 6.75 A10.5 10.5 0 0 1 12 22.5 Z" fill="#34A853"/>
-            <path d="M12 12 L12 22.5 A10.5 10.5 0 0 1 2.91 6.75 Z" fill="#FBBC05"/>
-            <circle cx="12" cy="12" r="4.6" fill="#fff"/>
-            <circle cx="12" cy="12" r="3.7" fill="#4285F4"/>
-          </svg>
-          Google Chrome
-          <span class="store-tag">Скоро</span>
-        </button>
         <button type="button" class="store-tab" id="tab-yandex" role="tab" aria-selected="false" aria-controls="panel-yandex" tabindex="-1">
           <svg class="store-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="12" cy="12" r="12" fill="#FC3F1D"/>
             <text x="12" y="12" text-anchor="middle" dominant-baseline="central" fill="#fff" font-family="Manrope, sans-serif" font-size="15" font-weight="800">Я</text>
           </svg>
           Яндекс Браузер
-          <span class="store-tag">Скоро</span>
+          <span class="store-tag store-tag--live">Доступно</span>
         </button>
       </div>
 
-      <div class="store-panel" id="panel-edge" role="tabpanel" aria-labelledby="tab-edge">
+      <div class="store-panel" id="panel-edge" role="tabpanel" aria-labelledby="tab-edge" hidden>
         <div class="panel-cta">
           <a class="btn btn-primary btn-lg" href="https://microsoftedge.microsoft.com/addons/detail/jockjfcmofofpjjpoljclneoabhcioao" target="_blank" rel="noopener">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -181,17 +181,20 @@
         </div>
       </div>
 
-      <div class="store-panel" id="panel-chrome" role="tabpanel" aria-labelledby="tab-chrome" hidden>
+      <div class="store-panel" id="panel-chrome" role="tabpanel" aria-labelledby="tab-chrome">
         <div class="panel-cta">
-          <span class="btn btn-primary btn-lg is-soon" aria-disabled="true">Скоро в Chrome Web Store</span>
-          <p class="store-note">Расширение проходит проверку в Chrome Web Store — кнопка активируется после публикации. Пока можно установить смэш AI в Microsoft Edge.</p>
+          <a class="btn btn-primary btn-lg" href="https://chromewebstore.google.com/detail/%D1%81%D0%BC%D1%8D%D1%88-ai/gbihhellmceffkjmolejogbdlgigkfpp" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Установить из Chrome Web Store
+          </a>
+          <p class="store-note">Без аккаунта. Установка занимает меньше минуты.</p>
         </div>
         <div class="install-steps">
           <div class="step">
             <div class="step-num">1</div>
             <div>
               <h3>Откройте страницу смэш AI</h3>
-              <p>Когда расширение опубликуют, кнопка выше откроет его страницу в Chrome Web Store.</p>
+              <p>Нажмите кнопку выше — откроется страница расширения в Chrome Web Store.</p>
             </div>
           </div>
           <div class="step">
@@ -220,15 +223,18 @@
 
       <div class="store-panel" id="panel-yandex" role="tabpanel" aria-labelledby="tab-yandex" hidden>
         <div class="panel-cta">
-          <span class="btn btn-primary btn-lg is-soon" aria-disabled="true">Скоро для Яндекс Браузера</span>
-          <p class="store-note">Яндекс Браузер ставит расширения из Chrome Web Store — кнопка активируется, когда смэш AI там опубликуют. Пока можно установить смэш AI в Microsoft Edge.</p>
+          <a class="btn btn-primary btn-lg" href="https://chromewebstore.google.com/detail/%D1%81%D0%BC%D1%8D%D1%88-ai/gbihhellmceffkjmolejogbdlgigkfpp" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Установить из Chrome Web Store
+          </a>
+          <p class="store-note">Яндекс Браузер поддерживает расширения из Chrome Web Store. Установка занимает меньше минуты.</p>
         </div>
         <div class="install-steps">
           <div class="step">
             <div class="step-num">1</div>
             <div>
               <h3>Откройте страницу смэш AI</h3>
-              <p>Когда расширение опубликуют, кнопка выше откроет его страницу в Chrome Web Store — Яндекс Браузер умеет ставить расширения оттуда.</p>
+              <p>Нажмите кнопку выше — откроется страница смэш AI в Chrome Web Store.</p>
             </div>
           </div>
           <div class="step">

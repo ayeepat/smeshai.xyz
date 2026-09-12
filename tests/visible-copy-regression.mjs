@@ -32,4 +32,15 @@ const siteCss = await readFile('styles/site.css', 'utf8');
 assert.match(siteCss, /@media \(max-width: 640px\)[\s\S]*?\.legal-wrap h1\s*\{[\s\S]*?font-size:\s*clamp\(23px, 7\.2vw, 28px\)/,
   'legal page headings must fit the 360px mobile viewport');
 
+const installPage = await readFile('install/index.html', 'utf8');
+const chromeStoreUrl = 'https://chromewebstore.google.com/detail/%D1%81%D0%BC%D1%8D%D1%88-ai/gbihhellmceffkjmolejogbdlgigkfpp';
+assert.ok(installPage.indexOf('id="tab-chrome"') < installPage.indexOf('id="tab-edge"'),
+  'Chrome must be the first browser option');
+assert.match(installPage, /id="tab-chrome"[^>]*aria-selected="true"/,
+  'Chrome must be selected by default');
+assert.ok(installPage.split(chromeStoreUrl).length >= 4,
+  'Chrome Web Store must be the primary structured-data, Chrome, and Yandex download URL');
+assert.doesNotMatch(installPage, /Скоро|is-soon|aria-disabled="true"/i,
+  'published browser options must not retain disabled or coming-soon copy');
+
 console.log('visible website copy regression passed');
