@@ -1,0 +1,317 @@
+/* смэш — glass layer. Loaded after site.css: the page now sits on a live
+   pixel-art backdrop (scripts/scene.js), and surfaces become frosted glass
+   that blurs it. Layout, copy and behaviour are untouched.
+
+   Backdrop-filter note: an ancestor animating `opacity` cuts its children off
+   from the backdrop until the fade ends (the blur "pops" in). So blur is only
+   put on elements that fade themselves or never sit inside a fading parent;
+   media bezels (.frame, .browser, .device) use tinted glass without blur. */
+
+:root {
+  --glass: rgba(255, 255, 255, 0.50);
+  --glass-strong: rgba(253, 251, 246, 0.78);
+  --glass-line: rgba(255, 255, 255, 0.78);
+  --glass-blur: blur(18px) saturate(175%);
+  --glass-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 1px 2px rgba(60, 50, 30, 0.05), 0 26px 50px -30px rgba(40, 33, 20, 0.38);
+  --spot: rgba(31, 143, 139, 0.17);
+  --panel-glass: rgba(33, 57, 54, 0.84);
+}
+:root[data-theme="dark"] {
+  --glass: rgba(34, 50, 48, 0.50);
+  --glass-strong: rgba(24, 36, 35, 0.80);
+  --glass-line: rgba(255, 255, 255, 0.11);
+  --glass-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    0 1px 2px rgba(0, 0, 0, 0.4), 0 26px 50px -26px rgba(0, 0, 0, 0.75);
+  --spot: rgba(79, 209, 197, 0.16);
+  --panel-glass: rgba(11, 20, 19, 0.74);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --glass: rgba(34, 50, 48, 0.50);
+    --glass-strong: rgba(24, 36, 35, 0.80);
+    --glass-line: rgba(255, 255, 255, 0.11);
+    --glass-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09),
+      0 1px 2px rgba(0, 0, 0, 0.4), 0 26px 50px -26px rgba(0, 0, 0, 0.75);
+    --spot: rgba(79, 209, 197, 0.16);
+    --panel-glass: rgba(11, 20, 19, 0.74);
+  }
+}
+
+/* ---- backdrop ---------------------------------------------------------- */
+body { background: transparent; }
+.scene {
+  position: fixed; inset: 0; z-index: -1;
+  width: 100%; height: 100%;
+  height: 100lvh; /* stay put while the mobile address bar slides away */
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+/* the shader paints the washes; keep the CSS ones only as its fallback */
+.hero::before { display: none; }
+.no-scene .hero::before { display: block; }
+.no-scene body {
+  background:
+    radial-gradient(50% 40% at 88% 8%, var(--hero-glow) 0%, transparent 100%),
+    radial-gradient(40% 36% at 4% 62%, var(--hero-glow) 0%, transparent 100%);
+}
+
+/* ---- navbar: a floating glass bar -------------------------------------- */
+.nav {
+  background: transparent; border-bottom: 0;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  padding-top: 12px;
+}
+.nav.is-scrolled { box-shadow: none; }
+.nav-inner {
+  width: calc(100% - 28px);
+  height: 60px;
+  padding: 0 12px 0 16px;
+  border-radius: 20px;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(18px) saturate(175%); backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-shadow);
+  transition: background .25s var(--ease);
+}
+.nav.is-scrolled .nav-inner { background: var(--glass-strong); }
+.mobile-menu {
+  top: 84px; left: 14px; right: 14px; bottom: auto;
+  max-height: calc(100vh - 100px);
+  border: 1px solid var(--glass-line); border-radius: 20px;
+  background: var(--glass-strong);
+  -webkit-backdrop-filter: blur(18px) saturate(175%); backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow), var(--shadow-pop);
+}
+@media (max-width: 640px) {
+  .nav-inner { height: 54px; padding: 0 8px 0 12px; }
+  .mobile-menu { top: 76px; }
+}
+
+/* ---- buttons ----------------------------------------------------------- */
+.btn-primary {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), var(--shadow-accent),
+    0 14px 26px -16px var(--accent-glow);
+}
+.btn-ghost {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-color: var(--glass-line);
+  box-shadow: 0 0 0 1px var(--separator);
+}
+.btn-ghost:hover { background: var(--glass-strong); }
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(1px); }
+
+/* ---- the shared glass surface ------------------------------------------ */
+.card, .tier, .faq-item, .hero-chip, .store-tab,
+.checkout-card, .checkout-summary, .checkout-result-card, .checkout-alert,
+.ticker, .footer {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(18px) saturate(175%); backdrop-filter: var(--glass-blur);
+  border-color: var(--glass-line);
+}
+.card, .tier, .checkout-card, .checkout-summary, .checkout-result-card {
+  box-shadow: var(--glass-shadow);
+}
+.card:hover { border-color: var(--glass-line); box-shadow: var(--glass-shadow), 0 30px 54px -30px rgba(40, 33, 20, 0.4); }
+.tier.featured { border-color: var(--accent); box-shadow: var(--glass-shadow), 0 0 0 1px var(--accent) inset; }
+.faq-item[open] { background: var(--glass-strong); }
+.checkout-main { background: transparent; }
+.checkout-input:focus { background: var(--glass-strong); }
+
+/* cursor light across glass (glass.js feeds --mx/--my) */
+.card, .tier, .safety-point, .checkout-summary, .store-tab { position: relative; }
+.card::after, .tier::after, .safety-point::after, .checkout-summary::after {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  width: auto; height: auto;
+  border-radius: inherit; pointer-events: none;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 0%), var(--spot), transparent 72%);
+  opacity: 0; transition: opacity .3s var(--ease);
+}
+.card:hover::after, .tier:hover::after, .safety-point:hover::after,
+.checkout-summary:hover::after { opacity: 1; }
+
+/* ---- hero -------------------------------------------------------------- */
+.browser-logos .b-logo { box-shadow: 0 0 0 2px var(--glass-strong); }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* the highlighter is drawn across the phrase after the headline lands */
+  .js .display em {
+    background-repeat: no-repeat; background-size: 0% 100%;
+    animation: marker-swipe .75s var(--ease) .55s forwards;
+  }
+  @keyframes marker-swipe { to { background-size: 100% 100%; } }
+
+  /* transform-only entrance: fading the wrapper would cut the glass chips
+     off from the backdrop while it runs */
+  .js .hero-media {
+    opacity: 1;
+    animation: hero-media-in 1s var(--ease) .15s backwards;
+  }
+  @keyframes hero-media-in {
+    from { transform: translateY(46px) scale(.94); }
+    to { transform: none; }
+  }
+  .js .hero-chip { animation: chip-in .5s var(--ease) 1.1s backwards; }
+  .js .hero-chip--file { animation-delay: 1.3s; }
+  @keyframes chip-in {
+    from { opacity: 0; translate: 0 12px; scale: .9; }
+    to { opacity: 1; translate: 0 0; scale: 1; }
+  }
+}
+
+.hero-chip {
+  box-shadow: var(--glass-shadow), var(--shadow-pop);
+  translate: var(--cx, 0px) var(--cy, 0px);
+  transition: translate .3s var(--ease);
+}
+
+/* Media bezels: tinted glass rim around the recording */
+.browser, .frame, .device {
+  background: var(--glass-strong);
+  border-color: var(--glass-line);
+}
+.browser { padding: 0 7px 7px; }
+.browser-bar { background: transparent; border-bottom: 0; padding: 11px 9px; }
+.browser-url { background: var(--glass); border-color: var(--separator); }
+.browser video, .browser img { border-radius: 13px; }
+.frame, .device { padding: 7px; }
+.frame video, .frame img, .device video { border-radius: 13px; }
+.hero .browser {
+  box-shadow: var(--glass-shadow),
+    0 50px 90px -50px rgba(40, 33, 20, 0.45),
+    0 42px 110px -48px var(--accent-glow);
+}
+
+@media (min-width: 881px) and (hover: hover) {
+  .hero-media { perspective: 1500px; }
+  .hero .browser {
+    transform: rotateY(calc(var(--ry, -5) * 1deg)) rotateX(calc(var(--rx, 2) * 1deg));
+    transition: transform .35s var(--ease);
+    transform-origin: 50% 60%;
+  }
+}
+@media (min-width: 881px) {
+  .feature-media { perspective: 1400px; }
+  .feature .frame {
+    transform: rotateY(-9deg) rotateX(2deg);
+    transition: transform .6s var(--ease), box-shadow .6s var(--ease);
+    box-shadow: var(--glass-shadow), 0 44px 80px -46px rgba(40, 33, 20, 0.45);
+  }
+  .feature--rev .frame { transform: rotateY(9deg) rotateX(2deg); }
+  .feature:hover .frame { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero .browser, .feature .frame, .feature--rev .frame { transform: none; }
+}
+
+/* ---- ticker: a frosted strip with pixel separators --------------------- */
+.ticker { border-color: var(--glass-line); padding: 17px 0; }
+.ticker-track span { font-size: 12.5px; color: var(--secondary); }
+.ticker-track span::after {
+  width: 6px; height: 6px; border-radius: 0;
+  opacity: 0.8; margin: 0 24px;
+  box-shadow: 6px -6px 0 var(--accent-soft-strong);
+}
+
+/* ---- pixel numerals (glass.js) ----------------------------------------- */
+.px-digits { display: block; height: 15px; width: auto; fill: currentColor; }
+.feature-kicker.has-px {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 18px;
+  font-size: 12.5px; color: var(--secondary);
+}
+.feature-kicker.has-px .px-digits { height: 30px; fill: var(--accent); }
+.step-num, .checkout-step-num {
+  background: var(--glass);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-shadow);
+}
+.step-num.has-px .px-digits { height: 16px; }
+.card-num.has-px .px-digits { height: 12px; }
+.checkout-step-num.has-px .px-digits { height: 14px; }
+.step-num { border-radius: 12px; }
+.card-num { border-radius: 6px; }
+
+.feature-points svg, .tier li svg {
+  padding: 2px; border-radius: 5px;
+  background: var(--accent-soft);
+  box-sizing: content-box; margin-top: 1px;
+}
+
+/* ---- safety: tinted glass slips instead of paper notes ----------------- */
+.safety { background: transparent; }
+.safety-point {
+  border-radius: 18px;
+  border: 1px solid var(--glass-line);
+  background: color-mix(in srgb, var(--note-2) 58%, transparent);
+  -webkit-backdrop-filter: blur(18px) saturate(175%); backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
+}
+.safety-point:nth-child(2) { background: color-mix(in srgb, var(--note-1) 58%, transparent); }
+.safety-point:nth-child(3) { background: color-mix(in srgb, var(--note-3) 58%, transparent); }
+.safety-point > * { position: relative; z-index: 1; }
+.safety-point .sp-ico {
+  background: var(--glass-strong);
+  border: 1px solid var(--glass-line);
+}
+
+/* ---- closing panel: dark glass over the scene -------------------------- */
+.cta-final {
+  background:
+    radial-gradient(52% 70% at 50% 0%, rgba(79, 209, 197, 0.16), transparent 72%)
+    var(--panel-glass);
+  -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 40px 70px -40px rgba(20, 30, 28, 0.6);
+}
+.cta-final .btn-ghost {
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  box-shadow: none;
+}
+
+/* a fading wrapper would un-blur the glass inside it — slide these instead */
+@media (prefers-reduced-motion: no-preference) {
+  .js .faq-list[data-reveal] { opacity: 1; }
+  .js [data-reveal] { transform: translateY(28px) scale(.985); }
+  .js [data-reveal].is-in { transform: none; }
+  .js .safety-point[data-reveal].is-in { transform: rotate(-1deg); }
+  .js .safety-point[data-reveal].is-in:nth-child(2) { transform: rotate(0.8deg); }
+  .js .safety-point[data-reveal].is-in:nth-child(3) { transform: rotate(-0.5deg); }
+  .js .safety-point[data-reveal].is-in:hover { transform: rotate(0) translateY(-3px); }
+}
+
+/* ---- long-form & forms: denser glass so text stays easy to read -------- */
+.legal-wrap {
+  width: calc(100% - 28px);
+  margin: 28px auto 0;
+  padding: 48px 44px 64px;
+  border-radius: 24px;
+  border: 1px solid var(--glass-line);
+  background: var(--glass-strong);
+  -webkit-backdrop-filter: blur(18px) saturate(175%); backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
+}
+@media (max-width: 640px) {
+  .legal-wrap { padding: 30px 18px 44px; border-radius: 18px; margin-top: 16px; }
+}
+.store-tab.is-active { background: var(--glass-strong); }
+.promo-input, .checkout-input { background: var(--glass-strong); }
+
+/* ---- footer ------------------------------------------------------------ */
+.footer { border-top: 1px solid var(--glass-line); }
+
+@media (prefers-reduced-transparency: reduce) {
+  :root { --glass: var(--card); --glass-strong: var(--card); --panel-glass: var(--panel); }
+}
+
+/* Phones: lighter blur (each glass surface re-blurs as the scene moves) */
+@media (max-width: 880px), (pointer: coarse) {
+  :root { --glass-blur: blur(12px) saturate(160%); }
+  .card, .tier, .faq-item, .hero-chip, .store-tab, .checkout-card, .checkout-summary,
+  .checkout-result-card, .checkout-alert, .ticker, .footer, .nav-inner, .mobile-menu,
+  .safety-point, .legal-wrap { -webkit-backdrop-filter: blur(12px) saturate(160%); }
+  .cta-final { -webkit-backdrop-filter: blur(14px) saturate(150%); backdrop-filter: blur(14px) saturate(150%); }
+}
