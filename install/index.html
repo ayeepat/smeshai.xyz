@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>смэш AI — установить</title>
-  <meta name="description" content="Установите смэш AI для Google Chrome, Microsoft Edge или Яндекс Браузера и решайте задания электронного журнала за пару секунд." />
+  <meta name="description" content="Как установить смэш AI для Chrome, Microsoft Edge, Яндекс Браузера и Firefox и открыть расширение в электронном журнале." />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png" />
@@ -13,7 +13,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="смэш AI" />
   <meta property="og:title" content="смэш AI — установить" />
-  <meta property="og:description" content="Установите смэш AI для Google Chrome, Microsoft Edge или Яндекс Браузера и решайте задания электронного журнала за пару секунд." />
+  <meta property="og:description" content="Как установить смэш AI для Chrome, Microsoft Edge, Яндекс Браузера и Firefox и открыть расширение в электронном журнале." />
   <meta property="og:url" content="https://smeshai.xyz/install/" />
   <meta property="og:image" content="https://smeshai.xyz/og-electronic-journal.PNG" />
   <meta property="og:image:width" content="1200" />
@@ -21,10 +21,10 @@
   <meta property="og:image:alt" content="смэш AI — помощник электронного журнала" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="смэш AI — установить" />
-  <meta name="twitter:description" content="Установите смэш AI для Google Chrome, Microsoft Edge или Яндекс Браузера и решайте задания электронного журнала за пару секунд." />
+  <meta name="twitter:description" content="Как установить смэш AI для Chrome, Microsoft Edge, Яндекс Браузера и Firefox и открыть расширение в электронном журнале." />
   <meta name="twitter:image" content="https://smeshai.xyz/og-electronic-journal.PNG" />
   <meta name="author" content="Саклаков Даниил Денисович" />
-  <meta name="keywords" content="установить смэш AI, скачать смэш AI, расширение для Chrome, Microsoft Edge Add-ons, Яндекс Браузер, помощник домашних заданий, электронный журнал, решение тестов, ГДЗ" />
+  <meta name="keywords" content="установить смэш AI, скачать смэш AI, расширение для Chrome, Microsoft Edge Add-ons, Яндекс Браузер, Firefox Add-ons, помощник домашних заданий, электронный журнал, решение тестов, ГДЗ" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta property="og:locale" content="ru_RU" />
   <meta name="geo.region" content="RU" />
@@ -32,7 +32,7 @@
   <link rel="alternate" hreflang="ru-RU" href="https://smeshai.xyz/install/" />
   <link rel="alternate" hreflang="x-default" href="https://smeshai.xyz/install/" />
   <link rel="stylesheet" href="/styles/theme.css?v=2" />
-  <link rel="stylesheet" href="/styles/site.css?v=2" />
+  <link rel="stylesheet" href="/styles/site.css?v=3" />
   <link rel="stylesheet" href="/styles/glass.css?v=2" />
   <script src="/scripts/theme.js"></script>
   <script src="/scripts/scene.js?v=2" defer></script>
@@ -42,6 +42,9 @@
   <script src="/scripts/install.js" defer></script>
   <noscript>
     <style>
+      .install-hero > p, .store-tabs { display: none; }
+      .store-panel[hidden] { display: block; }
+      .store-panel + .store-panel { margin-top: 36px; }
       @media (max-width: 880px) {
         .nav-inner { height: auto; flex-wrap: wrap; padding: 10px 0; row-gap: 8px; }
         .nav-links { display: flex !important; order: 3; width: 100%; margin-left: 0; gap: 4px 8px; flex-wrap: wrap; }
@@ -56,11 +59,15 @@
     "name": "смэш AI",
     "applicationCategory": "BrowserApplication",
     "applicationSubCategory": "Browser Extension",
-    "operatingSystem": "Google Chrome, Microsoft Edge, Яндекс Браузер, Chromium",
+    "operatingSystem": "Google Chrome, Microsoft Edge, Яндекс Браузер, Firefox",
     "url": "https://smeshai.xyz/install/",
-    "downloadUrl": "https://chromewebstore.google.com/detail/%D1%81%D0%BC%D1%8D%D1%88-ai/gbihhellmceffkjmolejogbdlgigkfpp",
+    "downloadUrl": [
+      "https://chromewebstore.google.com/detail/%D1%81%D0%BC%D1%8D%D1%88-ai/gbihhellmceffkjmolejogbdlgigkfpp",
+      "https://microsoftedge.microsoft.com/addons/detail/jockjfcmofofpjjpoljclneoabhcioao",
+      "https://addons.mozilla.org/en-US/firefox/addon/smeshai/"
+    ],
     "inLanguage": "ru-RU",
-    "description": "Установите смэш AI для Google Chrome, Microsoft Edge или Яндекс Браузера и решайте задания электронного журнала за пару секунд.",
+    "description": "Как установить смэш AI для Chrome, Microsoft Edge, Яндекс Браузера и Firefox и открыть расширение в электронном журнале.",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "RUB" },
     "publisher": {
       "@type": "Organization",
@@ -107,7 +114,7 @@
     <section class="wrap install-hero">
       <img src="/assets/icons/logo-mark.png" class="brandmark" alt="смэш AI" style="margin: 0 auto 24px; width: 64px; height: 64px;" />
       <h1>Установить смэш AI</h1>
-      <p>Выберите свой браузер — покажем нужную кнопку и короткую инструкцию. Работает в любом браузере на базе Chromium.</p>
+      <p>Выберите свой браузер.</p>
 
       <div class="store-tabs" role="tablist" aria-label="Выбор браузера">
         <button type="button" class="store-tab is-active" id="tab-chrome" role="tab" aria-selected="true" aria-controls="panel-chrome">
@@ -119,7 +126,6 @@
             <circle cx="12" cy="12" r="3.7" fill="#4285F4"/>
           </svg>
           Google Chrome
-          <span class="store-tag store-tag--live">Доступно</span>
         </button>
         <button type="button" class="store-tab" id="tab-edge" role="tab" aria-selected="false" aria-controls="panel-edge" tabindex="-1">
           <svg class="store-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -132,7 +138,6 @@
             <path fill="#fff" d="M17.4 13.1c.3-.7.4-1.4.4-2.1 0-2.9-2.4-5-5.5-5-3.2 0-5.7 2.6-5.7 5.9 0 3.4 2.6 6 6.1 6 1.7 0 3.2-.6 4.2-1.6-.7.4-1.5.6-2.4.6-2 0-3.6-1.3-4-3.2-.1-.5-.1-1 0-1.5.3-1.3 1.3-2.1 2.5-2.1.9 0 1.6.4 2 1.1.4.7 1 1.1 1.7 1.1.4 0 .8-.2 1-.7z"/>
           </svg>
           Microsoft Edge
-          <span class="store-tag store-tag--live">Доступно</span>
         </button>
         <button type="button" class="store-tab" id="tab-yandex" role="tab" aria-selected="false" aria-controls="panel-yandex" tabindex="-1">
           <svg class="store-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -140,7 +145,10 @@
             <text x="12" y="12" text-anchor="middle" dominant-baseline="central" fill="#fff" font-family="Manrope, sans-serif" font-size="15" font-weight="800">Я</text>
           </svg>
           Яндекс Браузер
-          <span class="store-tag store-tag--live">Доступно</span>
+        </button>
+        <button type="button" class="store-tab" id="tab-firefox" role="tab" aria-selected="false" aria-controls="panel-firefox" tabindex="-1">
+          <img class="store-logo" src="/assets/icons/firefox-48.png" width="22" height="22" alt="" />
+          Firefox
         </button>
       </div>
 
@@ -259,6 +267,46 @@
             <div>
               <h3>Откройте электронный журнал</h3>
               <p>Нажмите на иконку смэш AI в той вкладке, где вы уже вошли в журнал. Расширение просканирует домашки и предложит решить.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="store-panel" id="panel-firefox" role="tabpanel" aria-labelledby="tab-firefox" hidden>
+        <div class="panel-cta">
+          <a class="btn btn-primary btn-lg" href="https://addons.mozilla.org/en-US/firefox/addon/smeshai/" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Установить из Firefox Add-ons
+          </a>
+          <p class="store-note">Для Firefox 153 или новее на компьютере.</p>
+        </div>
+        <div class="install-steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <h3>Откройте страницу смэш AI в Firefox</h3>
+              <p>В Firefox нажмите кнопку выше. Она откроет страницу расширения в каталоге дополнений Mozilla.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <h3>Нажмите «Add to Firefox»</h3>
+              <p>В русской версии кнопка называется «Добавить в Firefox». В окне подтверждения нажмите «Добавить».</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <h3>Закрепите значок на панели</h3>
+              <p>Нажмите на значок пазла на панели Firefox. Откройте меню рядом со смэш AI и выберите «Закрепить на панели инструментов».</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div>
+              <h3>Откройте электронный журнал</h3>
+              <p>Войдите в журнал в Firefox. В той же вкладке нажмите на значок смэш AI.</p>
             </div>
           </div>
         </div>

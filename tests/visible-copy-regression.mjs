@@ -42,5 +42,12 @@ assert.ok(installPage.split(chromeStoreUrl).length >= 4,
   'Chrome Web Store must be the primary structured-data, Chrome, and Yandex download URL');
 assert.doesNotMatch(installPage, /Скоро|is-soon|aria-disabled="true"/i,
   'published browser options must not retain disabled or coming-soon copy');
+assert.match(installPage, /id="tab-firefox"[^>]*aria-controls="panel-firefox"/,
+  'the Firefox tab must target its installation instructions');
+const firefoxPanel = installPage.split('id="panel-firefox"')[1] ?? '';
+assert.ok(firefoxPanel.includes('href="https://addons.mozilla.org/en-US/firefox/addon/smeshai/"'),
+  'the Firefox installation button must link to the Mozilla listing');
+assert.doesNotMatch(installPage, /store-tag|Доступно/iu,
+  'browser tabs must not show availability badges');
 
 console.log('visible website copy regression passed');
